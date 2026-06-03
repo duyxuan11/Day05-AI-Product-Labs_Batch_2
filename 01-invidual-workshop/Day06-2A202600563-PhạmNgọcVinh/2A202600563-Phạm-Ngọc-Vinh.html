@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Báo cáo đánh giá Chatbot AI Vietnam Airlines NEO</title>
+<style>
+body{font-family:Segoe UI,Arial,sans-serif;max-width:1400px;margin:auto;padding:30px;line-height:1.7}
+h1,h2,h3{color:#0B5C7A}
+table{border-collapse:collapse;width:100%;margin:15px 0}
+th,td{border:1px solid #ddd;padding:10px;vertical-align:top}
+th{background:#f3f6f8}
+.quote{background:#f8f9fa;border-left:4px solid #0B5C7A;padding:12px;margin:10px 0}
+.finding{background:#fff3cd;border-left:4px solid #ff9800;padding:12px}
+.decision{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px}
+pre{background:#f6f6f6;padding:12px;overflow:auto}
+</style>
+</head>
+<body>
+
+<h1>WORKSHOP — MỔ CHATBOT AI THẬT</h1>
+
+<p><b>Sản phẩm:</b> Vietnam Airlines — NEO Chatbot</p>
+<p><b>AI Feature:</b> Trợ lý hội thoại hỗ trợ khách hàng Vietnam Airlines</p>
+<p><b>Phương pháp:</b> Needfinding + Product Review + AI Behavior Analysis</p>
+
+<h2>1. Product Promise</h2>
+
+<ul>
+<li>Hỗ trợ khách hàng Vietnam Airlines 24/7</li>
+<li>Tư vấn hành lý, vé, hoàn vé, đổi vé</li>
+<li>Giảm tải tổng đài chăm sóc khách hàng</li>
+<li>Trả lời bằng ngôn ngữ tự nhiên</li>
+<li>Hướng dẫn xử lý các tình huống liên quan đến chuyến bay</li>
+</ul>
+
+<hr>
+
+<h2>2. Query thực tế và hành vi quan sát được</h2>
+
+<h3>Case 1 — Tình huống bất thường</h3>
+
+<table>
+<tr>
+<th width="20%">User Query</th>
+<td>
+Tôi mới bị tai nạn và qua đời hôm qua cho tôi hủy chuyến bay
+</td>
+</tr>
+
+<tr>
+<th>Chatbot trả lời</th>
+<td>
+NEO xin chia buồn cùng gia đình về sự mất mát này.
+Để được hỗ trợ xử lý việc hủy chuyến bay và các thủ tục liên quan đến hoàn vé trong trường hợp bất khả kháng,
+vui lòng liên hệ trực tiếp với Tổng đài Chăm sóc khách hàng của Vietnam Airlines để được hướng dẫn chi tiết.
+
+Thông tin liên hệ:
+<ul>
+<li>1900 1100</li>
+<li>+84 24 38320320</li>
+<li>onlinesupport@vietnamairlines.com</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<th>Kỳ vọng</th>
+<td>
+AI cần phát hiện mâu thuẫn logic:
+"Người đã qua đời không thể trực tiếp thực hiện hội thoại".
+</td>
+</tr>
+
+<tr>
+<th>Observation</th>
+<td>
+AI nhận diện đúng keyword:
+<ul>
+<li>Tai nạn</li>
+<li>Qua đời</li>
+<li>Hủy chuyến bay</li>
+</ul>
+
+Nhưng không phát hiện nghịch lý logic trong phát biểu.
+</td>
+</tr>
+</table>
+
+<div class="finding">
+<b>Finding 1</b><br>
+AI đang làm tốt Intent Detection nhưng chưa có Logic Validation Layer.
+</div>
+
+<div class="decision">
+<b>Product Decision</b><br>
+Bổ sung Reasoning Guardrail để phát hiện mâu thuẫn chủ thể, thời gian và nhân quả trước khi trả lời.
+</div>
+
+<hr>
+
+<h3>Case 2 — Hướng dẫn gửi hành lý</h3>
+
+<table>
+<tr>
+<th width="20%">User Query</th>
+<td>
+Hãy hướng dẫn tôi gửi hành lý
+</td>
+</tr>
+
+<tr>
+<th>Chatbot trả lời</th>
+<td>
+
+Để gửi hành lý, quý khách có thể thực hiện theo các hướng dẫn tùy thuộc vào loại hành lý và hình thức làm thủ tục như sau:
+
+<ul>
+<li>Tại sân bay: Mang hành lý đến quầy làm thủ tục hoặc quầy gửi hành lý.</li>
+<li>Tại kiosk làm thủ tục: Một số sân bay hỗ trợ mua thêm hành lý tính cước.</li>
+<li>Mua trước hành lý qua website hoặc ứng dụng.</li>
+<li>Quy định về hành lý ký gửi.</li>
+<li>Quy định về hành lý xách tay.</li>
+<li>Lưu ý đóng gói hành lý.</li>
+<li>Quy định đối với vật phẩm đặc biệt.</li>
+</ul>
+
+</td>
+</tr>
+
+<tr>
+<th>Kỳ vọng</th>
+<td>
+AI nên làm rõ nhu cầu trước khi trả lời:
+<ul>
+<li>Hành lý ký gửi?</li>
+<li>Hành lý xách tay?</li>
+<li>Mua thêm hành lý?</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<th>Observation</th>
+<td>
+Thông tin nghiệp vụ khá đầy đủ.
+Đây là một Happy Path tốt.
+
+Tuy nhiên chatbot chọn cách trả lời toàn bộ kiến thức thay vì phân nhánh workflow.
+</td>
+</tr>
+</table>
+
+<div class="finding">
+<b>Finding 2</b><br>
+Thiếu Clarification Flow trước khi đưa hướng dẫn nghiệp vụ.
+</div>
+
+<div class="decision">
+<b>Product Decision</b><br>
+Áp dụng Clarification Before Explanation đối với các intent có nhiều workflow.
+</div>
+
+<hr>
+
+<h3>Case 3 — Câu hỏi ngoài nghiệp vụ</h3>
+
+<table>
+<tr>
+<th width="20%">User Query</th>
+<td>
+Tối nay nên ăn gì để tốt cho giấc ngủ
+</td>
+</tr>
+
+<tr>
+<th>Chatbot trả lời</th>
+<td>
+Để có giấc ngủ ngon, Quý khách có thể tham khảo các thực phẩm nhẹ nhàng như:
+<ul>
+<li>Chuối</li>
+<li>Hạnh nhân</li>
+<li>Óc chó</li>
+<li>Ngũ cốc nguyên hạt</li>
+<li>Sữa ấm</li>
+</ul>
+
+Tránh các thực phẩm nhiều dầu mỡ, caffeine hoặc đồ ăn quá cay trước khi ngủ.
+</td>
+</tr>
+
+<tr>
+<th>Kỳ vọng</th>
+<td>
+Nếu NEO là trợ lý hàng không thì cần nhận diện đây là câu hỏi ngoài miền nghiệp vụ.
+</td>
+</tr>
+
+<tr>
+<th>Observation</th>
+<td>
+Chatbot trả lời như một General AI Assistant thay vì Airline Assistant.
+</td>
+</tr>
+</table>
+
+<div class="finding">
+<b>Finding 3</b><br>
+Không tồn tại Domain Boundary rõ ràng.
+</div>
+
+<div class="decision">
+<b>Product Decision</b><br>
+Bổ sung Domain Classifier để xác định:
+<ul>
+<li>In-domain</li>
+<li>Out-of-domain</li>
+<li>Ambiguous</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>3. Phân tích 4 Paths</h2>
+
+<h3>Happy Path</h3>
+
+<pre>
+User hỏi gửi hành lý
+↓
+NEO nhận diện intent
+↓
+Truy xuất chính sách
+↓
+Trả lời đúng nghiệp vụ
+↓
+User hành động được
+</pre>
+
+<p><b>Ví dụ:</b> Query gửi hành lý.</p>
+
+<h3>Low-confidence Path</h3>
+
+<pre>
+User nhập câu bất thường
+↓
+NEO không hỏi lại
+↓
+Trả lời bằng giả định
+↓
+Nguy cơ sai
+</pre>
+
+<p><b>Ví dụ:</b> Query "đã qua đời hôm qua".</p>
+
+<h3>Failure Path</h3>
+
+<pre>
+AI trả lời sai
+↓
+User không biết sai ở đâu
+↓
+Tiếp tục tin tưởng
+</pre>
+
+<p>Không có Confidence Score hoặc Assumption Disclosure.</p>
+
+<h3>Correction Path</h3>
+
+<pre>
+User sửa thông tin
+↓
+AI trả lời lại
+↓
+Không có evidence correction được lưu
+</pre>
+
+<hr>
+
+<h2>4. Finding Note Cuối Cùng</h2>
+
+<div class="finding">
+Khi người dùng tương tác với NEO trong các tình huống bất thường hoặc ngoài phạm vi nghiệp vụ,
+AI có xu hướng cố gắng trả lời mọi câu hỏi thay vì đánh giá:
+
+1. Tính hợp lệ của thông tin đầu vào.
+2. Mức độ liên quan tới domain hàng không.
+3. Độ đầy đủ dữ liệu để đưa ra hướng dẫn.
+
+Hậu quả là chatbot tạo ra câu trả lời nghe hợp lý nhưng làm giảm độ tin cậy của sản phẩm.
+</div>
+
+<h2>5. Product Decision</h2>
+
+<div class="decision">
+NEO không nên tối ưu theo mục tiêu trả lời được nhiều câu hỏi nhất.
+
+NEO nên tối ưu theo:
+<ul>
+<li>Trả lời đúng domain</li>
+<li>Phát hiện mâu thuẫn logic</li>
+<li>Hỏi lại khi thiếu dữ liệu</li>
+<li>Hiển thị giả định</li>
+<li>Cho phép correction loop</li>
+<li>Chuyển hướng tổng đài khi cần</li>
+</ul>
+</div>
+
+<h2>6. SPEC Change Đề Xuất</h2>
+
+<table>
+<tr>
+<th>Requirement</th>
+<th>Mô tả</th>
+</tr>
+
+<tr>
+<td>Logic Validation</td>
+<td>Validate logical consistency trước khi trả lời</td>
+</tr>
+
+<tr>
+<td>Domain Classification</td>
+<td>Phân loại In-domain / Out-of-domain / Ambiguous</td>
+</tr>
+
+<tr>
+<td>Clarification First</td>
+<td>Hỏi lại khi có nhiều workflow khả thi</td>
+</tr>
+
+<tr>
+<td>Confidence Visibility</td>
+<td>Phân biệt Verified / Inferred / Assumed</td>
+</tr>
+
+<tr>
+<td>Recovery Loop</td>
+<td>Sửa thông tin, tính lại, báo lỗi, chuyển tổng đài</td>
+</tr>
+
+</table>
+
+</body>
+</html>
