@@ -1,3 +1,4 @@
+
 # Evidence Pack — WonderPath AI
 
 Nộp kèm thin SPEC cuối Day 05.
@@ -76,3 +77,4 @@ Sau evidence, nhóm đổi thành xây dựng một Web App/Zalo Mini App siêu 
 
 Lý do: Khách hàng đi chơi muốn thư giãn tuyệt đối, cực kỳ lười tự nghiên cứu công cụ lập lịch hay tự đọc các mô tả trò chơi sơ sài. Việc gợi ý ngay lịch trình 1-2 tiếng thông qua hội thoại quét QR giúp tối thiểu hóa ma sát tương tác, phản ứng linh hoạt trước biến động vận hành thực tế của công viên.
 ```
+

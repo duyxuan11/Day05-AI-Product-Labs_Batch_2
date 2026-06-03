@@ -1,0 +1,982 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mổ sản phẩm AI thật: MoMo Moni</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #647084;
+      --line: #dde3ee;
+      --soft: #f0f3f8;
+      --accent: #b0006d;
+      --accent-strong: #8c0058;
+      --teal: #0f766e;
+      --green: #15803d;
+      --amber: #b45309;
+      --red: #b91c1c;
+      --shadow: 0 20px 50px rgba(17, 24, 39, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        linear-gradient(180deg, #fbfcff 0%, var(--bg) 280px),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+      gap: 28px;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 28px rgba(17, 24, 39, 0.06);
+      overflow: hidden;
+    }
+
+    .sidebar-head {
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .sidebar h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .nav {
+      display: grid;
+      max-height: calc(100vh - 134px);
+      overflow: auto;
+      padding: 8px;
+    }
+
+    .nav a {
+      border-radius: 6px;
+      padding: 8px 10px;
+      color: #48556b;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .nav a:hover {
+      background: var(--soft);
+      color: var(--accent-strong);
+    }
+
+    main {
+      min-width: 0;
+    }
+
+    .hero {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+      gap: 26px;
+      align-items: stretch;
+      padding: clamp(24px, 4vw, 44px);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      color: var(--ink);
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 680px;
+      margin: 18px 0 0;
+      color: #415066;
+      font-size: 18px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .meta-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfcff;
+      padding: 12px 14px;
+      min-height: 76px;
+    }
+
+    .meta-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .meta-item strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .phone-visual {
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      min-height: 360px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(176, 0, 109, 0.12), rgba(15, 118, 110, 0.10)),
+        #f7f9fc;
+      border: 1px solid var(--line);
+    }
+
+    .phone {
+      width: min(250px, 100%);
+      border: 8px solid #1f2937;
+      border-radius: 28px;
+      background: #ffffff;
+      box-shadow: 0 18px 34px rgba(17, 24, 39, 0.18);
+      overflow: hidden;
+    }
+
+    .phone-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .phone-top span {
+      font-size: 13px;
+    }
+
+    .phone-dot {
+      width: 34px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .chat {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+    }
+
+    .bubble {
+      max-width: 88%;
+      border-radius: 14px;
+      padding: 10px 12px;
+      color: #263247;
+      font-size: 13px;
+      line-height: 1.45;
+      background: var(--soft);
+    }
+
+    .bubble.ai {
+      justify-self: end;
+      background: #fff0f7;
+      color: #6f124c;
+    }
+
+    .mini-cta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 0 16px 16px;
+    }
+
+    .mini-cta span {
+      border: 1px solid #f1bfd9;
+      border-radius: 6px;
+      padding: 8px;
+      color: var(--accent-strong);
+      font-size: 11px;
+      font-weight: 800;
+      text-align: center;
+      background: #fffafd;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    section {
+      scroll-margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      padding: clamp(20px, 3vw, 32px);
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.05);
+    }
+
+    h2,
+    h3 {
+      color: var(--ink);
+      letter-spacing: 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(24px, 3vw, 32px);
+    }
+
+    h3 {
+      margin: 26px 0 12px;
+      font-size: 20px;
+    }
+
+    section > h3:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    p:last-child,
+    ul:last-child,
+    ol:last-child,
+    blockquote:last-child,
+    pre:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: #111827;
+      font-weight: 800;
+    }
+
+    ul,
+    ol {
+      margin: 10px 0 18px;
+      padding-left: 24px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    blockquote {
+      margin: 18px 0;
+      border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #fff7fb;
+      color: #402036;
+      padding: 16px 18px;
+      font-size: 17px;
+      font-weight: 650;
+    }
+
+    pre {
+      overflow: auto;
+      margin: 14px 0 22px;
+      border: 1px solid #d5deea;
+      border-radius: var(--radius);
+      background: #111827;
+      color: #f8fafc;
+      padding: 18px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 14px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    th,
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border-radius: 999px;
+      padding: 3px 10px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .happy {
+      background: var(--green);
+    }
+
+    .low {
+      background: var(--amber);
+    }
+
+    .failure {
+      background: var(--red);
+    }
+
+    .correction {
+      background: var(--teal);
+    }
+
+    .handoff {
+      background: #475569;
+    }
+
+    .callout {
+      border: 1px solid #c7d2fe;
+      border-radius: var(--radius);
+      background: #f5f7ff;
+      padding: 16px 18px;
+      margin: 18px 0;
+    }
+
+    .callout p {
+      margin: 0;
+    }
+
+    .decision {
+      border-color: #f5c2dd;
+      background: #fff7fb;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 22px 0;
+      background: var(--line);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .page {
+        display: block;
+      }
+
+      .sidebar {
+        position: static;
+        margin-bottom: 18px;
+      }
+
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-height: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .phone-visual {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        font-size: 15px;
+      }
+
+      .page {
+        width: min(100% - 20px, 1180px);
+        padding: 10px 0 36px;
+      }
+
+      .nav {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner,
+      section {
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .meta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        width: 230px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        display: block;
+        width: 100%;
+        padding: 0;
+      }
+
+      .sidebar,
+      .phone-visual {
+        display: none;
+      }
+
+      .hero,
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar" aria-label="Mục lục">
+      <div class="sidebar-head">
+        <p class="label">AI Product Lab</p>
+        <h2>Mục lục</h2>
+      </div>
+      <nav class="nav">
+        <a href="#app">1. App được chọn</a>
+        <a href="#promise">2. Promise của sản phẩm</a>
+        <a href="#scenario">3. Scenario được chọn để test</a>
+        <a href="#query-test">4. Query test</a>
+        <a href="#expectation-reality">5. Kỳ vọng vs thực tế</a>
+        <a href="#as-is-flow">6. As-is flow</a>
+        <a href="#flow-status">7. Đánh dấu trạng thái trong flow</a>
+        <a href="#weakest-path">8. Path yếu nhất</a>
+        <a href="#to-be-flow">9. To-be flow đề xuất</a>
+        <a href="#to-be-response">10. Thiết kế câu trả lời To-be mẫu</a>
+        <a href="#fixes">11. Những điểm nên sửa trong sản phẩm</a>
+        <a href="#product-decision">12. Product decision</a>
+        <a href="#final-output">13. Output cuối cùng</a>
+        <a href="#conclusion">14. Kết luận</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="hero">
+        <div class="hero-inner">
+          <div>
+            <p class="label">Mổ sản phẩm AI thật</p>
+            <h1>MoMo Moni</h1>
+            <p class="subtitle">Dùng thử một sản phẩm AI thật, vẽ flow hiện tại, xác định path yếu nhất và đề xuất flow cải thiện.</p>
+            <div class="meta-grid" aria-label="Thông tin bài làm">
+              <div class="meta-item">
+                <span>Người thực hiện</span>
+                <strong>Lê Duy Hùng</strong>
+              </div>
+              <div class="meta-item">
+                <span>MSSV</span>
+                <strong>2A202600718</strong>
+              </div>
+              <div class="meta-item">
+                <span>App được chọn</span>
+                <strong>MoMo</strong>
+              </div>
+              <div class="meta-item">
+                <span>AI feature</span>
+                <strong>Moni</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="phone-visual" aria-label="Minh họa hội thoại Moni">
+            <div class="phone">
+              <div class="phone-top">
+                <span>Moni</span>
+                <span class="phone-dot"></span>
+              </div>
+              <div class="chat">
+                <div class="bubble">Tôi không tiêu nhiều trên MoMo...</div>
+                <div class="bubble ai">Mình có thể hỗ trợ, nhưng cần thêm dữ liệu.</div>
+                <div class="bubble">Tôi muốn tiết kiệm 2 triệu mỗi tháng.</div>
+                <div class="bubble ai">Mình sẽ lập kế hoạch thủ công cho bạn.</div>
+              </div>
+              <div class="mini-cta">
+                <span>Tạo mục tiêu</span>
+                <span>Điều chỉnh</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section id="app">
+          <h2>1. App được chọn</h2>
+          <p><strong>App:</strong> MoMo<br>
+          <strong>AI feature:</strong> Moni<br>
+          <strong>Vai trò:</strong> Trợ thủ tài chính, phân tích chi tiêu và hỗ trợ người dùng trong app.</p>
+          <p>Tôi chọn <strong>MoMo Moni</strong> vì đây là một AI assistant nằm trong app tài chính cá nhân. Với một sản phẩm tài chính, người dùng không chỉ cần chatbot trả lời được câu hỏi, mà cần AI giúp họ hiểu tình hình tiền bạc, biết dữ liệu đến từ đâu và có hành động tiếp theo rõ ràng.</p>
+        </section>
+
+        <section id="promise">
+          <h2>2. Promise của sản phẩm</h2>
+          <p>Promise của MoMo Moni có thể hiểu là:</p>
+          <blockquote>Moni giúp người dùng quản lý tài chính cá nhân tốt hơn bằng cách phân tích chi tiêu, gợi ý tiết kiệm và hỗ trợ trả lời các câu hỏi tài chính trong app.</blockquote>
+          <p>Kỳ vọng của người dùng khi dùng Moni:</p>
+          <ul>
+            <li>Biết mình đang tiêu tiền vào đâu.</li>
+            <li>Biết khoản nào nên cắt giảm.</li>
+            <li>Có gợi ý tiết kiệm phù hợp với tình hình cá nhân.</li>
+            <li>Không phải tự mò trong lịch sử giao dịch.</li>
+            <li>Khi dữ liệu chưa đủ, Moni biết hỏi thêm thay vì trả lời chung chung.</li>
+          </ul>
+        </section>
+
+        <section id="scenario">
+          <h2>3. Scenario được chọn để test</h2>
+          <p>Tôi không tiêu nhiều trên MoMo, nên nếu chọn flow “phân tích toàn bộ chi tiêu từ lịch sử giao dịch MoMo” thì dữ liệu sẽ không đủ. Vì vậy, tôi chọn scenario sau:</p>
+          <blockquote>Người dùng có ít dữ liệu giao dịch trên MoMo nhưng vẫn muốn Moni giúp lập kế hoạch chi tiêu và tiết kiệm cá nhân.</blockquote>
+          <p>Đây là một scenario quan trọng vì không phải người dùng nào cũng dùng MoMo làm ví chi tiêu chính. Nếu Moni chỉ hữu ích với người dùng có nhiều giao dịch trong app, AI sẽ bỏ lỡ nhóm người dùng vẫn có nhu cầu quản lý tài chính nhưng không có đủ dữ liệu trong MoMo.</p>
+        </section>
+
+        <section id="query-test">
+          <h2>4. Query test</h2>
+          <p>Tôi dùng 3 query để kiểm tra 3 năng lực chính của Moni: nhận biết thiếu dữ liệu, lập ngân sách từ thông tin người dùng nhập và xử lý correction.</p>
+
+          <h3>Query 1 — Kiểm tra khả năng nhận biết giới hạn dữ liệu</h3>
+          <pre><code>Tôi không tiêu nhiều trên MoMo, bạn có thể giúp tôi quản lý chi tiêu được không?</code></pre>
+          <p><strong>Kỳ vọng:</strong><br>
+          Moni nên nhận ra rằng dữ liệu giao dịch trong MoMo có thể chưa đủ để phân tích toàn diện. Thay vì trả lời chung chung, Moni nên nói rõ giới hạn dữ liệu và đề xuất cách tiếp tục.</p>
+          <p><strong>Moni phản hồi:</strong></p>
+          <pre><code>Mình có thể hỗ trợ, nhưng dữ liệu trên MoMo có thể chưa phản ánh toàn bộ chi tiêu của bạn. Bạn có muốn nhập thêm thu nhập, khoản chi cố định hoặc mục tiêu tiết kiệm không?</code></pre>
+          <p><strong>Nhận xét:</strong><br>
+          Phản hồi này tốt vì Moni không cố phân tích từ dữ liệu thiếu. Moni nói rõ giới hạn của dữ liệu trên MoMo và mở ra hướng tiếp tục bằng cách hỏi thêm thông tin từ người dùng.</p>
+          <p><strong>Điểm cần quan sát:</strong></p>
+          <ul>
+            <li>Moni có nói rõ mình thiếu dữ liệu không?</li>
+            <li>Moni có hỏi thêm thông tin không?</li>
+            <li>Moni có đưa lựa chọn như nhập thu nhập, tạo ngân sách hoặc lập mục tiêu tiết kiệm không?</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <h3>Query 2 — Kiểm tra khả năng lập ngân sách từ dữ liệu người dùng nhập</h3>
+          <pre><code>Thu nhập của tôi khoảng 8 triệu/tháng, hãy giúp tôi chia ngân sách chi tiêu.</code></pre>
+          <p><strong>Kỳ vọng:</strong><br>
+          Moni nên đưa ra một bản chia ngân sách cụ thể, có số tiền theo từng nhóm chi tiêu, thay vì chỉ khuyên chung chung.</p>
+          <p><strong>Moni phản hồi:</strong></p>
+          <pre><code>Với thu nhập 8 triệu/tháng, bạn có thể tham khảo ngân sách:
+- Chi phí thiết yếu: 4.000.000đ
+- Ăn uống: 1.800.000đ
+- Di chuyển: 700.000đ
+- Giải trí/mua sắm: 700.000đ
+- Tiết kiệm: 800.000đ
+
+Bạn có muốn mình điều chỉnh theo mục tiêu tiết kiệm cụ thể không?</code></pre>
+          <p><strong>Nhận xét:</strong><br>
+          Phản hồi này có giá trị vì Moni đã chia ngân sách thành các khoản cụ thể theo số tiền. Tuy nhiên, Moni vẫn nên hỏi thêm về các chi phí cố định như tiền nhà, học phí hoặc đi lại để kế hoạch sát với tình hình thật hơn.</p>
+          <p><strong>Điểm cần quan sát:</strong></p>
+          <ul>
+            <li>Moni có chia theo con số cụ thể không?</li>
+            <li>Moni có hỏi thêm về chi phí cố định như tiền nhà, học phí, đi lại không?</li>
+            <li>Moni có cho người dùng chỉnh lại ngân sách không?</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <h3>Query 3 — Kiểm tra correction</h3>
+          <pre><code>Không, tôi không muốn xem giao dịch MoMo. Tôi muốn lập kế hoạch tiết kiệm 2 triệu mỗi tháng.</code></pre>
+          <p><strong>Kỳ vọng:</strong><br>
+          Moni phải hiểu rằng người dùng đang sửa hướng. Người dùng không muốn phân tích lịch sử giao dịch trong MoMo, mà muốn lập kế hoạch tiết kiệm thủ công.</p>
+          <p><strong>Moni phản hồi:</strong></p>
+          <pre><code>Hiểu rồi. Mình sẽ không dựa vào lịch sử giao dịch MoMo mà sẽ giúp bạn lập kế hoạch tiết kiệm từ thu nhập và các khoản chi bạn nhập.
+
+Để tiết kiệm 2 triệu/tháng với thu nhập 8 triệu, bạn cần giữ tổng chi tiêu trong khoảng 6 triệu. Bạn có muốn mình chia ngân sách theo các nhóm chi chính không?</code></pre>
+          <p><strong>Nhận xét:</strong><br>
+          Phản hồi này xử lý correction đúng hướng vì Moni hiểu rằng người dùng không muốn xem giao dịch MoMo nữa. Moni đã chuyển sang lập kế hoạch tiết kiệm thủ công và đưa ra bước tiếp theo rõ ràng.</p>
+          <p><strong>Điểm cần quan sát:</strong></p>
+          <ul>
+            <li>Moni có hiểu correction không?</li>
+            <li>Moni có chuyển từ “xem giao dịch” sang “lập kế hoạch tiết kiệm” không?</li>
+            <li>Moni có đưa bước tiếp theo rõ ràng không?</li>
+          </ul>
+        </section>
+
+        <section id="expectation-reality">
+          <h2>5. Kỳ vọng vs thực tế</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Query</th>
+                  <th>Kỳ vọng</th>
+                  <th>Thực tế dễ xảy ra</th>
+                  <th>Đánh giá</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tôi không tiêu nhiều trên MoMo, bạn có thể giúp tôi quản lý chi tiêu được không?</td>
+                  <td>Moni nói rõ thiếu dữ liệu và hỏi thêm thông tin</td>
+                  <td>Moni có thể trả lời lời khuyên tài chính chung chung hoặc gợi ý xem giao dịch MoMo</td>
+                  <td><span class="status low">Low-confidence</span></td>
+                </tr>
+                <tr>
+                  <td>Thu nhập của tôi khoảng 8 triệu/tháng, hãy giúp tôi chia ngân sách chi tiêu</td>
+                  <td>Moni chia ngân sách thành các khoản cụ thể</td>
+                  <td>Moni có thể đưa ngân sách nhưng chưa hỏi thêm về chi phí cố định</td>
+                  <td><span class="status low">Low-confidence</span></td>
+                </tr>
+                <tr>
+                  <td>Không, tôi không muốn xem giao dịch MoMo. Tôi muốn lập kế hoạch tiết kiệm 2 triệu mỗi tháng</td>
+                  <td>Moni hiểu correction và chuyển sang lập kế hoạch thủ công</td>
+                  <td>Moni có thể vẫn quay lại hướng xem giao dịch hoặc chỉ đưa lời khuyên tiết kiệm chung</td>
+                  <td><span class="status failure">Failure</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Điểm gãy chính không phải là một bug nhỏ. Điểm gãy nằm ở việc Moni chưa có flow đủ rõ cho trường hợp người dùng ít dữ liệu giao dịch trong MoMo.</p>
+        </section>
+
+        <section id="as-is-flow">
+          <h2>6. As-is flow</h2>
+          <p>Flow hiện tại có thể mô tả như sau:</p>
+          <pre><code>User: Tôi không tiêu nhiều trên MoMo, bạn có thể giúp tôi quản lý chi tiêu được không?
+↓
+Moni: Đưa lời khuyên tài chính chung chung hoặc gợi ý xem chi tiêu trên MoMo
+↓
+User: Thu nhập của tôi khoảng 8 triệu/tháng, hãy giúp tôi chia ngân sách chi tiêu
+↓
+Moni: Có thể đưa gợi ý ngân sách nhưng chưa cá nhân hóa sâu
+↓
+User: Không, tôi không muốn xem giao dịch MoMo. Tôi muốn lập kế hoạch tiết kiệm 2 triệu mỗi tháng
+↓
+Moni: Có nguy cơ vẫn quay lại dữ liệu giao dịch MoMo hoặc đưa lời khuyên tiết kiệm chung
+↓
+User không có kế hoạch hành động đủ rõ ràng</code></pre>
+        </section>
+
+        <section id="flow-status">
+          <h2>7. Đánh dấu trạng thái trong flow</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Bước</th>
+                  <th>Trạng thái</th>
+                  <th>Nhận xét</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>User nói không tiêu nhiều trên MoMo</td>
+                  <td><span class="status happy">Happy</span></td>
+                  <td>User nói rõ bối cảnh và nhu cầu</td>
+                </tr>
+                <tr>
+                  <td>Moni nhận diện rằng thiếu dữ liệu giao dịch</td>
+                  <td><span class="status low">Low-confidence</span></td>
+                  <td>Nếu Moni không nói rõ giới hạn dữ liệu, user khó tin câu trả lời</td>
+                </tr>
+                <tr>
+                  <td>User nhập thu nhập 8 triệu/tháng</td>
+                  <td><span class="status happy">Happy</span></td>
+                  <td>User cung cấp dữ liệu thay thế cho lịch sử giao dịch</td>
+                </tr>
+                <tr>
+                  <td>Moni lập ngân sách</td>
+                  <td><span class="status low">Low-confidence</span></td>
+                  <td>Nếu chỉ đưa lời khuyên chung, chưa đủ giá trị</td>
+                </tr>
+                <tr>
+                  <td>User correction: không muốn xem giao dịch MoMo</td>
+                  <td><span class="status correction">Correction</span></td>
+                  <td>Đây là điểm quan trọng để kiểm tra AI có hiểu sửa hướng không</td>
+                </tr>
+                <tr>
+                  <td>Moni vẫn gợi ý xem giao dịch MoMo hoặc không đưa kế hoạch cụ thể</td>
+                  <td><span class="status failure">Failure</span></td>
+                  <td>User bị kẹt vì AI không đi đúng intent mới</td>
+                </tr>
+                <tr>
+                  <td>User phải tự lập kế hoạch hoặc rời flow</td>
+                  <td><span class="status handoff">Handoff xấu</span></td>
+                  <td>AI không giúp user hoàn thành mục tiêu</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="weakest-path">
+          <h2>8. Path yếu nhất</h2>
+          <p><strong>Path yếu nhất:</strong> khi người dùng không có nhiều dữ liệu giao dịch trên MoMo, Moni chưa có flow đủ tốt để chuyển sang chế độ lập kế hoạch tài chính thủ công.</p>
+          <p>Vấn đề chính:</p>
+          <blockquote>Moni có thể phụ thuộc quá nhiều vào dữ liệu giao dịch trong MoMo. Khi dữ liệu thiếu, AI dễ trả lời chung chung thay vì hỏi thêm thông tin, cho người dùng nhập dữ liệu ngoài MoMo hoặc tạo một kế hoạch tiết kiệm cụ thể.</blockquote>
+          <p>Path này yếu vì:</p>
+          <ul>
+            <li>Không phải người dùng nào cũng tiêu nhiều qua MoMo.</li>
+            <li>Người dùng vẫn có nhu cầu quản lý tài chính dù dữ liệu trong app ít.</li>
+            <li>Nếu Moni không xử lý tốt tình huống thiếu dữ liệu, người dùng sẽ thấy AI không hữu ích.</li>
+            <li>Với app tài chính, niềm tin đến từ sự rõ ràng: AI phải nói nó biết gì, chưa biết gì và cần thêm gì.</li>
+          </ul>
+        </section>
+
+        <section id="to-be-flow">
+          <h2>9. To-be flow đề xuất</h2>
+          <p>Flow mới nên hỗ trợ tốt hơn cho người dùng ít dữ liệu MoMo.</p>
+          <pre><code>User: Tôi không tiêu nhiều trên MoMo, bạn có thể giúp tôi quản lý chi tiêu được không?
+↓
+Moni: Có, nhưng dữ liệu MoMo có thể chưa phản ánh toàn bộ chi tiêu của bạn.
+↓
+Moni hỏi user muốn bắt đầu theo cách nào:
+[Nhập thu nhập hàng tháng]
+[Nhập chi phí cố định]
+[Lập mục tiêu tiết kiệm]
+[Tạo ngân sách thủ công]
+↓
+User: Thu nhập của tôi khoảng 8 triệu/tháng, tôi muốn tiết kiệm 2 triệu mỗi tháng
+↓
+Moni: Tính toán ngân sách còn lại là 6 triệu/tháng
+↓
+Moni hỏi thêm:
+Bạn có khoản cố định nào không? Ví dụ tiền nhà, học phí, đi lại.
+↓
+User nhập hoặc bỏ qua
+↓
+Moni tạo kế hoạch ngân sách đề xuất
+↓
+Moni đưa CTA:
+[Tạo mục tiêu tiết kiệm]
+[Nhắc tôi mỗi tuần]
+[Theo dõi chi tiêu thủ công]
+[Điều chỉnh ngân sách]</code></pre>
+        </section>
+
+        <section id="to-be-response">
+          <h2>10. Thiết kế câu trả lời To-be mẫu</h2>
+          <p>Ví dụ một câu trả lời tốt hơn của Moni:</p>
+          <pre><code>Có, mình vẫn có thể giúp bạn dù bạn không tiêu nhiều trên MoMo.
+
+Tuy nhiên, dữ liệu giao dịch trong MoMo có thể chưa phản ánh toàn bộ chi tiêu của bạn. Vì vậy, mình sẽ cần bạn nhập thêm một vài thông tin cơ bản.
+
+Với thu nhập 8.000.000đ/tháng và mục tiêu tiết kiệm 2.000.000đ/tháng, bạn còn 6.000.000đ để chi tiêu.
+
+Gợi ý ngân sách ban đầu:
+- Ăn uống: 2.000.000đ
+- Di chuyển: 700.000đ
+- Học tập/công việc: 800.000đ
+- Giải trí/mua sắm: 700.000đ
+- Chi phí phát sinh: 800.000đ
+- Dự phòng: 1.000.000đ
+
+Bạn muốn mình làm gì tiếp?
+[ Tạo mục tiêu tiết kiệm 2 triệu/tháng ]
+[ Nhắc khi gần vượt ngân sách ]
+[ Điều chỉnh ngân sách ]
+[ Nhập thêm chi phí cố định ]</code></pre>
+        </section>
+
+        <section id="fixes">
+          <h2>11. Những điểm nên sửa trong sản phẩm</h2>
+
+          <h3>11.1. Hỏi lại khi thiếu dữ liệu</h3>
+          <p>Khi người dùng nói không tiêu nhiều trên MoMo, Moni không nên cố phân tích từ dữ liệu thiếu. Moni nên hỏi thêm:</p>
+          <pre><code>Bạn muốn mình lập kế hoạch dựa trên thu nhập, mục tiêu tiết kiệm hay các khoản chi bạn nhập thủ công?</code></pre>
+
+          <h3>11.2. Nói rõ source và giới hạn</h3>
+          <p>Trong tài chính cá nhân, người dùng cần biết AI dựa vào đâu để đưa ra lời khuyên.</p>
+          <p>Ví dụ:</p>
+          <pre><code>Mình chưa có đủ dữ liệu giao dịch trong MoMo, nên kế hoạch này đang dựa trên thu nhập và mục tiêu tiết kiệm bạn vừa nhập.</code></pre>
+
+          <h3>11.3. Có button hành động</h3>
+          <p>Moni không nên chỉ trả lời bằng text. Nên có các CTA cụ thể:</p>
+          <pre><code>[ Tạo mục tiêu tiết kiệm ]
+[ Nhập chi tiêu thủ công ]
+[ Tạo ngân sách tháng ]
+[ Nhắc khi vượt ngân sách ]
+[ Điều chỉnh kế hoạch ]</code></pre>
+
+          <h3>11.4. Xử lý correction tốt hơn</h3>
+          <p>Khi người dùng nói:</p>
+          <pre><code>Không, tôi không muốn xem giao dịch MoMo.</code></pre>
+          <p>Moni nên phản hồi:</p>
+          <pre><code>Hiểu rồi. Mình sẽ không dùng lịch sử giao dịch MoMo và sẽ chuyển sang lập kế hoạch thủ công cho bạn.</code></pre>
+
+          <h3>11.5. Có correction log</h3>
+          <p>Sản phẩm nên ghi nhận các lần người dùng sửa hướng như:</p>
+          <ul>
+            <li>“Không muốn xem giao dịch.”</li>
+            <li>“Muốn lập kế hoạch tiết kiệm.”</li>
+            <li>“Muốn nhập chi tiêu thủ công.”</li>
+          </ul>
+          <p>Những correction này giúp cải thiện intent classification và ưu tiên thiết kế flow cho người dùng ít dữ liệu.</p>
+
+          <h3>11.6. Có handoff đúng lúc</h3>
+          <p>Nếu người dùng hỏi về giao dịch lỗi, hoàn tiền, tài khoản bị trừ tiền hoặc khiếu nại, Moni không nên chỉ tư vấn chung. Moni nên chuyển người dùng sang flow hỗ trợ phù hợp:</p>
+          <pre><code>Mình có thể chuyển bạn đến hỗ trợ giao dịch này.
+[Liên hệ hỗ trợ]
+[Gửi khiếu nại]
+[Xem trạng thái xử lý]</code></pre>
+        </section>
+
+        <section id="product-decision">
+          <h2>12. Product decision</h2>
+          <p><strong>Product decision:</strong> Moni nên ưu tiên cải thiện flow cho nhóm người dùng có ít dữ liệu giao dịch trên MoMo.</p>
+          <p>Hiện tại, nếu AI tài chính chỉ mạnh khi có nhiều dữ liệu giao dịch trong app, sản phẩm sẽ bỏ lỡ nhóm người dùng vẫn có nhu cầu quản lý tiền nhưng không dùng MoMo làm ví chi tiêu chính. Moni nên chuyển từ mô hình “phân tích dữ liệu có sẵn” sang “trợ lý lập kế hoạch tài chính”, nơi AI có thể xử lý cả trường hợp thiếu dữ liệu bằng cách hỏi thêm, cho nhập thủ công và tạo hành động tiếp theo.</p>
+          <p>Câu quyết định sản phẩm ngắn gọn:</p>
+          <blockquote>Moni không nên chỉ hữu ích với user tiêu nhiều trên MoMo. Sản phẩm cần hỗ trợ cả user ít dữ liệu bằng flow nhập thông tin thủ công, lập ngân sách, tạo mục tiêu tiết kiệm và nhắc nhở hành động.</blockquote>
+        </section>
+
+        <section id="final-output">
+          <h2>13. Output cuối cùng</h2>
+
+          <h3>As-is sketch</h3>
+          <pre><code>User ít tiêu trên MoMo
+→ Hỏi Moni có thể quản lý chi tiêu không
+→ Moni có thể trả lời chung hoặc gợi ý xem dữ liệu MoMo
+→ User nhập thu nhập 8 triệu/tháng
+→ Moni đưa ngân sách chưa đủ cá nhân hóa
+→ User correction: không muốn xem giao dịch, muốn tiết kiệm 2 triệu/tháng
+→ Moni có nguy cơ không chuyển đúng flow
+→ User không có kế hoạch hành động cụ thể</code></pre>
+
+          <h3>To-be sketch</h3>
+          <pre><code>User ít tiêu trên MoMo
+→ Moni nhận diện thiếu dữ liệu
+→ Moni nói rõ giới hạn dữ liệu
+→ Moni cho user chọn cách bắt đầu:
+   nhập thu nhập / nhập chi phí cố định / lập mục tiêu tiết kiệm / tạo ngân sách
+→ User nhập thu nhập 8 triệu và mục tiêu tiết kiệm 2 triệu
+→ Moni tính ngân sách còn lại 6 triệu
+→ Moni hỏi thêm chi phí cố định
+→ Moni tạo kế hoạch ngân sách
+→ Moni đưa CTA: tạo mục tiêu, nhắc nhở, theo dõi thủ công, điều chỉnh ngân sách</code></pre>
+
+          <h3>Product decision một câu</h3>
+          <blockquote>Moni nên ưu tiên flow lập kế hoạch tài chính thủ công cho người dùng ít dữ liệu, vì đây là cách giúp AI vẫn hữu ích ngay cả khi lịch sử giao dịch trong MoMo không đủ để phân tích.</blockquote>
+        </section>
+
+        <section id="conclusion">
+          <h2>14. Kết luận</h2>
+          <p>MoMo Moni có tiềm năng trở thành một trợ thủ tài chính cá nhân hữu ích, nhưng path yếu nằm ở tình huống người dùng không có nhiều dữ liệu giao dịch trong app. Khi đó, AI cần tránh trả lời chung chung và nên chuyển sang flow hỏi thêm thông tin, lập kế hoạch thủ công và đưa CTA rõ ràng.</p>
+          <p>Một AI tài chính tốt không chỉ trả lời đúng. Nó cần giúp người dùng:</p>
+          <ol>
+            <li>Hiểu tình hình tài chính của mình.</li>
+            <li>Biết câu trả lời dựa trên dữ liệu nào.</li>
+            <li>Có hành động tiếp theo ngay trong app.</li>
+          </ol>
+        </section>
+      </div>
+
+      <p class="footer-note">Mổ sản phẩm AI thật: MoMo Moni · Lê Duy Hùng · 2A202600718</p>
+    </main>
+  </div>
+</body>
+</html>

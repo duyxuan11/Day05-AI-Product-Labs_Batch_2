@@ -1,3 +1,4 @@
+
 # Template — Thin SPEC Cuối Day 05 (WonderPath AI)
 
 Thin SPEC không phải PRD đầy đủ. Đây là bản cam kết đủ rõ để sáng Day 06 nhóm build ngay.
@@ -77,3 +78,4 @@ Owner kiểm thử path này là Nguyễn Văn Đoan.
 | **Thành viên C** | Prototype | Zalo Mini App / Web App UI Mockup chạy được (tích hợp quét QR giả lập và hiển thị chatbox động). |
 | **Thành viên D** | Test / failure path | API tích hợp Gemini API để xử lý context, trả về JSON gồm Insight và Lịch trình đề xuất dạng nút bấm. |
 | **Cả nhóm** | Demo script / repo | Video demo 3 phút + Script thuyết trình + Code sạch trên GitHub. |
+
