@@ -6,6 +6,12 @@ Nộp kèm thin SPEC cuối Day 05.
 ## 1. Nhóm và track
 
 **Tên nhóm:** Group C2  
+**Thành viên nhóm:**
+- Nguyễn Văn Đoan — 2A202600795 (Trưởng nhóm / Repo Owner)
+- Nguyễn Huy Bảo — 2A202600997 (SPEC Lead & AI Engineer)
+- Lê Duy Hùng — 2A202600718 (Frontend Developer)
+- Phạm Ngọc Vinh — 2A202600563 (Backend Developer)
+- Tạ Duy Xuân — 2A202600970 (Product Owner & Slide Demo)
 **Track:** Travel & Hospitality (Khu vui chơi phức hợp / Theme Parks)  
 **Product/app đã chọn:** WonderPath AI — Trợ lý dẫn đường ngữ cảnh (Context-Aware Micro-Itinerary / Zero-UI)  
 **Build slice đang nghĩ:** Web App/Zalo Mini App kích hoạt qua mã QR tại các điểm chạm vật lý trong công viên, tự động thu thập vị trí hiện tại và thời gian thực (Zero-Input). Giao diện mở ra là một hội thoại siêu ngắn (Conversational UI sử dụng Gemini API) chào đón và đề xuất 2-3 lựa chọn phản hồi nhanh bằng nút bấm để sinh lịch trình ngắn hạn trong 1-2 tiếng tiếp theo thay vì bắt người dùng vào trình soạn lập lịch trình phức tạp.
