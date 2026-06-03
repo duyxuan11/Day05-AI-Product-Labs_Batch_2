@@ -1,4 +1,3 @@
-
 # Toolkit — Từ Evidence Đến Build Slice
 
 Dùng sau khi nhóm đã có evidence. Mục tiêu là chốt một build slice đủ nhỏ cho Day 06.
@@ -85,4 +84,3 @@ Những thứ **không build trong Day 06**:
 - Tính năng tự động đặt vé, mua đồ ăn hoặc đặt lịch nhà hàng qua chatbot.
 - Định vị dẫn đường thời gian thực 3D (AR Navigation).
 - Tự động thanh toán mua vé Fast Pass trực tiếp qua Zalo Mini App.
-
