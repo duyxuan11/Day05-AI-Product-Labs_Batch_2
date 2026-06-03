@@ -66,16 +66,15 @@ Nếu user quét QR định vị tại một điểm ngoài trời lúc thời t
 AI có thể tiếp tục gợi ý các trò chơi ngoài trời hoặc show diễn đã bị hủy do thời tiết xấu,
 hậu quả là du khách bị ướt, mệt mỏi, hoặc nguy hiểm hơn là di chuyển vào khu vực trơn trượt/không an toàn.
 Prototype sẽ xử lý bằng việc tích hợp API thời tiết thời gian thực và trạng thái hoạt động của công viên. Khi phát hiện chỉ số thời tiết xấu (mưa/sét), AI sẽ lập tức chuyển sang chế độ khẩn cấp: tự động ẩn toàn bộ gợi ý ngoài trời, hiển thị cảnh báo đỏ và đưa ra lộ trình di chuyển nhanh đến các khu vực trú mưa trong nhà gần nhất kèm nút bấm [Chỉ đường trú mưa].
-Owner kiểm thử path này là Nguyễn Văn Đoan.
+Owner kiểm thử path này là Tạ Duy Xuân.
 ```
 
 ## 8. Owner plan cho sáng Day 06
 
-| Thành viên | Việc phụ trách | Bằng chứng cần có trong repo |
+| Thành viên | Việc phụ trách (Day 06) | Bằng chứng cần có trong repo |
 |---|---|---|
-| **Nguyễn Văn Đoan** | Research / evidence & Test path | File `02-group-spec/evidence-pack-template.md` hoàn thiện, các kịch bản kiểm thử cho Failure Path (Trời mưa/Bảo trì). |
-| **Nguyễn Huy Bảo** | SPEC | File `02-group-spec/thin-spec-template.md` hoàn chỉnh, đặc tả chi tiết Gemini Prompt và cấu trúc dữ liệu Context. |
-| **Thành viên C** | Prototype | Zalo Mini App / Web App UI Mockup chạy được (tích hợp quét QR giả lập và hiển thị chatbox động). |
-| **Thành viên D** | Test / failure path | API tích hợp Gemini API để xử lý context, trả về JSON gồm Insight và Lịch trình đề xuất dạng nút bấm. |
-| **Cả nhóm** | Demo script / repo | Video demo 3 phút + Script thuyết trình + Code sạch trên GitHub. |
-
+| **Nguyễn Huy Bảo** - 2A202600997 | **Đầu việc 1**: Thiết kế Kịch bản & Dữ liệu giả lập | Dữ liệu giả lập các trò chơi, vị trí trạm QR, và trạng thái xếp hàng/thời tiết trong repo. |
+| **Nguyễn Văn Đoan** - 2A202600795 | **Đầu việc 2**: Lập trình Giao diện di động | Code Frontend Web/Zalo Mini App hiển thị Chatbot và Toast thông báo có nút [Undo]. |
+| **Lê Duy Hùng** - 2A202600718 | **Đầu việc 3**: Thiết lập Prompt & AI Logic | System Prompt cho Gemini và định nghĩa cấu trúc JSON đầu vào/đầu ra trong SPEC. |
+| **Phạm Ngọc Vinh** - 2A202600563 | **Đầu việc 4**: Xây dựng Backend & Kết nối API | API Server kết nối Gemini API và Mock API trạng thái công viên. |
+| **Tạ Duy Xuân** - 2A202600970 | **Đầu việc 5**: Kiểm thử kịch bản lỗi & Chuẩn bị Demo | Video demo 3 phút + Script thuyết trình + Slide nhóm + Kịch bản kiểm thử Failure Path. |
